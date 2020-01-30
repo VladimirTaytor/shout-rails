@@ -5,11 +5,4 @@
     <%= form.submit %>
 <% end %>
 
-
-<% @shouts.each do |shout| %>
-  <p>
-    <b><%= shout.body %></b>
-    <%= shout.created_at %>
-  </p>
-  <hr/>
-<% end %>
+<%= render @shouts %>
