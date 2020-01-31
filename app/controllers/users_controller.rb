@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class UsersController < Clearance::UsersController
-    def show
-        @user = User.find(params[:id])
-        @shouts = @user.shouts
-    end
+  def show
+    @user = User.find(params[:id])
+    @shouts = @user.shouts
+  end
 
-    private
+  private
 
-    def user_params
-        params.require(:user).permit(:username, :email, :password)
-    end
+  def user_params
+    params.require(:user).permit(:username, :email, :password)
+  end
 end
