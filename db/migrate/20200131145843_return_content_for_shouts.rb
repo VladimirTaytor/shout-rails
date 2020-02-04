@@ -5,12 +5,15 @@ class ReturnContentForShouts < ActiveRecord::Migration[6.0]
     belongs_to :content, polymorphic: true
   end
   class TextShout < ApplicationRecord; end
+
   def change
     reversible do |dir|
       Shout.reset_column_information
+      TextShout.reset_column_information
+
       Shout.find_each do |shout|
         dir.up do
-          text_shout = TextShout.find(id: shout.content_id).first
+          text_shout = TextShout.find(shout.content_id)
           shout.update(content_id: text_shout.id, content_type: 'TextShout')
         end
         dir.down do

@@ -1,6 +1,6 @@
 <p>
   <span><i><%= link_to shout.username, shout.user %></i></span> :
-  <b><%= shout.body %></b>
+  <b><%= shout.content.body %></b>
   <%= link_to shout do %>
     <%= time_ago_in_words(shout.created_at) %> ago
   <% end %>
