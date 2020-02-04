@@ -6,6 +6,8 @@ class Shout < ApplicationRecord
 
   validates :user, presence: true
 
+  has_many :likes
+
   default_scope { order(created_at: :desc) }
 
   def username

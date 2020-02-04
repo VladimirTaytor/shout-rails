@@ -7,4 +7,12 @@ module ShoutsHelper
 
     image_tag gravatar_url
   end
+
+  def like_button(shout)
+    return link_to "Unlike",
+                   unlike_shout_path(shout),
+                   method: :delete if current_user.liked?(shout)
+
+    link_to "Like", like_shout_path(shout), method: :post
+  end
 end
