@@ -3,6 +3,6 @@
 class DashboardsController < ApplicationController
   def show
     @shout = Shout.new
-    @shouts = Shout.all
+    @shouts = current_user.timeline_shouts
   end
 end

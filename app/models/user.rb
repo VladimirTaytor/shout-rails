@@ -45,6 +45,10 @@ class User < ApplicationRecord
     liked_shouts.destroy(shout)
   end
 
+  def timeline_shouts
+    Shout.where(user_id: followed_user_ids + [id])
+  end
+
   def to_param
     username
   end
