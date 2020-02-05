@@ -2,7 +2,6 @@ class FollowedUsersController < ApplicationController
   def create
     user_to_follow = find_user
     current_user.follow(user_to_follow)
-
     redirect_to user_to_follow
   end
 
