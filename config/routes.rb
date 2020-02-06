@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :passwords, controller: 'clearance/passwords', only: %i[create new]
   resource :session, only: [:create]
 
+  resource :searches, only: [:show]
+
   resources :hashtags, only: [:show]
 
   resources :users, only: %i[create show] do

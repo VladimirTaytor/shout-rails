@@ -1,6 +1,12 @@
 class HashtagsController < ApplicationController
   def show
-    @hashtag = params[:id]
-    @results = Search.for_hashtag @hashtag
+    @hashtag = hashtag
+    @results = Search.in_shouts_for hashtag
+  end
+
+  private
+
+  def hashtag
+    "##{params[:id]}"
   end
 end
