@@ -1,20 +1,20 @@
 class LikesController < ApplicationController
-  # before_filter :require_login
+  before_action :require_login
+  before_action :find_shout
 
   def create
-    current_user.like(shout)
+    current_user.like(@shout)
     redirect_to root_path
   end
 
   def destroy
-    current_user.unlike(shout)
+    current_user.unlike(@shout)
     redirect_to root_path
   end
 
   private
 
-  def shout
-    @_shout ||= Shout.find(params[:id])
+  def find_shout
+    @shout ||= Shout.find(params[:id])
   end
-
 end
